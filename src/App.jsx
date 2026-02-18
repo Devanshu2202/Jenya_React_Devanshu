@@ -1,32 +1,11 @@
-import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
 
-const ProductList = () => {
-  return (
-    <div>
-      <h1>Product List</h1>
-    </div>
-  )
-}
-
-const ProductDetail = () => {
-  const navigate = useNavigate();
-  return (
-    <div>
-      <h1>Product Detail</h1>
-      {/* TODO: logout button */}
-      <button onClick={() => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
-        localStorage.removeItem('user');
-        navigate('/login');
-      }}>Logout</button>
-    </div>
-  )
-}
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
 
 
 const ProtectedRoute = ({ children }) => {
