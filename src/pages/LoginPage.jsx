@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -18,7 +19,7 @@ const LoginPage = () => {
                 })
             });
             const data = await response.json();
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken);
             console.log(data);
         } catch (error) {
@@ -34,6 +35,12 @@ const LoginPage = () => {
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" className="border border-gray-300 rounded-md p-2" />
                 <button type="submit" className="bg-blue-500 text-white rounded-md p-2">Login</button>
             </form>
+            <p>Don't have an account? <Link to="/register" className="text-blue-500">Register</Link></p>
+
+            <div>
+                <p>demo creds username: 'emilys', password: 'emilyspass'</p>
+            </div>
+
         </>
     )
 }
