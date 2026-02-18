@@ -10,7 +10,7 @@ const RegisterPage = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleRegister = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const registerdata = {
             firstname,
             lastname,
